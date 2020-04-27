@@ -1,2 +1,2 @@
-export * from "./NumbersStoreContext";
-export * from "./NumbersStoreProvider";
+export * from "./HumanStoreContext";
+export * from "./HumanStoreProvider";

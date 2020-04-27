@@ -1,34 +1,15 @@
-import React from 'react';
-import './App.css';
-import logo from './logo.svg';
-import { NumbersStoreProvider } from './contexts';
+import React, { FunctionComponent } from "react";
+import "./App.css";
+import CreateHuman from "./components/CreateHuman";
+import Humans from "./components/Humans";
+import { HumanStoreProvider } from "./contexts";
 
-import AddNumber from './components/AddNumber';
-import NumbersInfo from './components/NumbersInfo';
-import NumbersList from './components/NumbersList';
-
-const App: React.FC = () => {
+const App: FunctionComponent = () => {
   return (
-    <NumbersStoreProvider>
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} alt="MobX-state-tree logo" className="App-logo" />
-          <h2>MobX-state-tree</h2>
-        </div>
-        <AddNumber />
-        <NumbersInfo />
-        <NumbersList />
-        <p>
-          <a
-            href="https://mobx-state-tree.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn MobX-state-tree
-          </a>
-        </p>
-      </div>
-    </NumbersStoreProvider>
+    <HumanStoreProvider>
+      <Humans />
+      <CreateHuman />
+    </HumanStoreProvider>
   );
 };
 

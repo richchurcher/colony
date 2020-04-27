@@ -1,1 +1,1 @@
-export * from "./NumbersStore";
+export * from "./HumanStore";
