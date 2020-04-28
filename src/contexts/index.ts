@@ -1,2 +1,2 @@
-export * from "./HumanStoreContext";
-export * from "./HumanStoreProvider";
+export * from "./RootStoreContext";
+export * from "./RootStoreProvider";

@@ -1,13 +1,13 @@
-import React, { FunctionComponent, useState, ChangeEvent } from "react";
+import React, { ChangeEvent, FunctionComponent, useState } from "react";
 import { useRootStore } from "../hooks";
 
-const CreateHuman: FunctionComponent = () => {
-  const { humanStore } = useRootStore();
+const CreateTask: FunctionComponent = () => {
+  const { taskStore } = useRootStore();
   const [name, setName] = useState<string>("");
 
-  const createHuman = () => {
+  const createTask = () => {
     if (name) {
-      humanStore.add(name);
+      taskStore.add(name);
     }
   };
 
@@ -18,13 +18,13 @@ const CreateHuman: FunctionComponent = () => {
     <>
       <input
         type="text"
-        placeholder="Name"
+        placeholder="Task name"
         onChange={onNameUpdate}
         value={name}
       />
-      <button onClick={createHuman}>CREATE</button>
+      <button onClick={createTask}>CREATE</button>
     </>
   );
 };
 
-export default CreateHuman;
+export default CreateTask;

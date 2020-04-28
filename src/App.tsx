@@ -1,15 +1,19 @@
 import React, { FunctionComponent } from "react";
 import "./App.css";
 import CreateHuman from "./components/CreateHuman";
+import CreateTask from "./components/CreateTask";
 import Humans from "./components/Humans";
-import { HumanStoreProvider } from "./contexts";
+import Tasks from "./components/Tasks";
+import { RootStoreProvider } from "./contexts";
 
 const App: FunctionComponent = () => {
   return (
-    <HumanStoreProvider>
+    <RootStoreProvider>
       <Humans />
       <CreateHuman />
-    </HumanStoreProvider>
+      <Tasks />
+      <CreateTask />
+    </RootStoreProvider>
   );
 };
 

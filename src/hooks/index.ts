@@ -1,1 +1,1 @@
-export * from "./useHumanStore";
+export * from "./useRootStore";
