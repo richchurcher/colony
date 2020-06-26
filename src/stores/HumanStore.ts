@@ -1,8 +1,6 @@
 import { Instance, types } from "mobx-state-tree";
 import { Human } from "../models";
-
-// TODO: db id sync
-let lastHumanId = 0;
+import { v4 as uuidv4 } from "uuid";
 
 export const HumanStore = types
   .model({
@@ -15,10 +13,9 @@ export const HumanStore = types
   }))
   .actions((self) => ({
     add(name: string) {
-      lastHumanId++;
       self.humans.put({
         name,
-        id: `${lastHumanId}`,
+        id: uuidv4(),
       });
     },
   }));

@@ -1,6 +1,7 @@
 import { Instance, types } from "mobx-state-tree";
 
-export const Equipment = types.model({
+export const Equipment = types.model("Equipment", {
+  id: types.identifier,
   name: types.string,
 });
 
@@ -14,7 +15,7 @@ export const Location = types.model("Location", {
 
 export interface LocationType extends Instance<typeof Location> {}
 
-export const Human = types.model({
+export const Human = types.model("Human", {
   id: types.identifier,
   destination: types.maybe(Location),
   name: types.string,
@@ -23,6 +24,14 @@ export const Human = types.model({
 });
 
 export interface HumanType extends Instance<typeof Human> {}
+
+export const Resource = types.model("Resource", {
+  id: types.identifier,
+  name: types.string,
+  location: types.maybe(Location),
+});
+
+export interface ResourceType extends Instance<typeof Resource> {}
 
 export const Task = types.model("Task", {
   id: types.identifier,

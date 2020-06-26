@@ -1,8 +1,6 @@
 import { Instance, types } from "mobx-state-tree";
 import { Task, TaskType, HumanType } from "../models";
-
-// TODO: db id sync
-let lastTaskId = 0;
+import { v4 as uuidv4 } from "uuid";
 
 export const TaskStore = types
   .model({
@@ -20,10 +18,9 @@ export const TaskStore = types
   }))
   .actions((self) => ({
     add(name: string) {
-      lastTaskId++;
       self.tasks.push({
         name,
-        id: `${lastTaskId}`,
+        id: uuidv4(),
       });
     },
 

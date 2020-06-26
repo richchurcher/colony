@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite";
 import React, { FunctionComponent } from "react";
 import { useRootStore } from "../hooks";
 import { TaskType } from "../models";
+import Human from "./Human";
 
 interface HumanTaskListProps {
   assignedTasks: TaskType[];
@@ -26,11 +27,14 @@ const Humans: FunctionComponent = () => {
       const human = store.humanStore.humans.get(key);
       if (human) {
         const assignedTasks = store.taskStore.assignedTo(human);
+        const selected = !!store.uiStore.selection.find(
+          (s) => s.id === human.id
+        );
         return (
-          <li key={human.id}>
-            {human.name}
+          <div key={key}>
+            <Human id={key} selected={selected} />
             <HumanTaskList assignedTasks={assignedTasks} />
-          </li>
+          </div>
         );
       }
       return null;
